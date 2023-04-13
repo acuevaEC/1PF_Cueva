@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import {
   AbstractControl,
@@ -36,6 +37,9 @@ export class FormulariosComponent {
 
   formularioRegistro = new FormGroup({
     nombre: this.nombreControl,
+    apellido: this.apellidoControl,
+    email: this.emailControl,
+    identificacion: this.identificacionControl,
   });
 
   numericValidator(): ValidatorFn {
@@ -46,6 +50,12 @@ export class FormulariosComponent {
 
       return null;
     };
+  }
+  constructor(private dialogRef: DialogRef){
+  }
+  guardar(): void{
+    console.log(this.formularioRegistro.value);
+    this.dialogRef.close(this.formularioRegistro.value);
   }
 }
 

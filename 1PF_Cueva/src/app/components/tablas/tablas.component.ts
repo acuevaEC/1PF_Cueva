@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
-import { AbmAlumnosComponent } from './abm-alumnos/abm-alumnos.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { FormulariosComponent } from '../formularios/formularios.component';
+
 
 export interface Estudiante {
   id: number;
@@ -56,10 +57,23 @@ export class TablasComponent {
     this.dataSource.filter = inputValue?.trim()?.toLowerCase();
 
   }
-  constructor(private matDialog: MatDialog){}
+  constructor(private matDialog: MatDialog) {}
+
 
 abrirEstudiante():void{
-  this.matDialog.open(AbmAlumnosComponent);
+const dialog= this.matDialog.open(FormulariosComponent);
+dialog.afterClosed().subscribe((valor) => {
+  if (valor) {
+    this.dataSource.data=[...this.dataSource.data, valor];
+    console.log(this.dataSource.data);
+  }else{
+    this.dataSource.data.push(valor);
+    console.log(valor);
+    console.log(this.dataSource.data);
+    console.log(valor);
+  }
+})
+ 
 }
 
  
