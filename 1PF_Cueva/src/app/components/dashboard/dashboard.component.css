@@ -3,11 +3,13 @@
     background-color:#4c4c4c;
   }
   
-
+  .main-1 {
+    padding:1rem;}
+/*
 .example-sidenav-content {
-   padding: 1rem;
-  }
 
+}
+*/
 .example-sidenav {
   background-color:#9c9c9c;
   padding: 3%;

@@ -1,37 +1,34 @@
-<mat-drawer-container class="example-container" autosize >
-
-  <mat-drawer #drawer class="example-sidenav" mode="side" >
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
     <h1 class="display-3">Opciones</h1>
-    <div >
-        <button (click)="showFiller = !showFiller" mat-button>
-            Listado Alumnos
-        </button>
-        <p></p>
-        <button (click)="showFiller = !showFiller" mat-button>
-            Nuevo Alumno
-        </button>
-
-      </div>
+    <div>
+      <button (click)="showFiller = !showFiller" mat-button>
+        Listado Alumnos
+      </button>
+      <p></p>
+      <button (click)="showFiller = !showFiller" mat-button>
+        Nuevo Alumno
+      </button>
+    </div>
   </mat-drawer>
 
   <div class="example-sidenav-content">
-
     <mat-toolbar color="primary">
       <button
-      (click)="drawer.toggle()"
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
+        (click)="drawer.toggle()"
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
       >
         <mat-icon>menu</mat-icon>
       </button>
-      <span>PRIMERA ENTREGA DEL PROYECTO FINAL - Andrés Cueva</span>
-
-
+      <span class="example-spacer"
+        >Primera Entrega Proyecto Final - Andres Cueva</span
+      >
     </mat-toolbar>
-
-    <p>
-      aca tengo que poner los contenidos
-    </p>
+    <main class="main-1">
+   
+      <app-tablas></app-tablas>
+    </main>
   </div>
 </mat-drawer-container>
