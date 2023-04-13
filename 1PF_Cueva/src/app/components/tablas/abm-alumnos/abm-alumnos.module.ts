@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import { FormulariosModule } from '../../formularios/formularios.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {MatSelectModule} from '@angular/material/select';
         MatInputModule,
         MatNativeDateModule,
         MatSelectModule,
+        FormulariosModule,
     ]
 })
 export class AbmAlumnosModule { }
