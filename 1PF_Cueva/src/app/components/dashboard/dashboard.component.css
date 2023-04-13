@@ -1,0 +1,14 @@
+.example-container {
+    height: 100vh;
+    background-color:#4c4c4c;
+  }
+  
+
+.example-sidenav-content {
+   padding: 1rem;
+  }
+
+.example-sidenav {
+  background-color:#9c9c9c;
+  padding: 3%;
+}
