@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 
-interface Estudiante {
+export interface Estudiante {
   id: number;
   nombre: string;
   apellido: string;
   ci: string;
   email: string;
+  fechaRegistro: Date;
 }
 
 @Component({
@@ -14,6 +16,7 @@ interface Estudiante {
   templateUrl: './tablas.component.html',
   styleUrls: ['./tablas.component.css'],
 })
+
 export class TablasComponent {
   estudiantes: Estudiante[] = [
     {
@@ -22,6 +25,7 @@ export class TablasComponent {
       apellido: 'Cueva',
       ci: '1722303245',
       email: 'andres.cueva.c@gmail.com',
+      fechaRegistro: new Date(),
     },
     {
       id: 2,
@@ -29,6 +33,7 @@ export class TablasComponent {
       apellido: 'Cueva',
       ci: '1714000659',
       email: 'pb.cueva@gmail.com',
+      fechaRegistro: new Date(),
     },
     {
       id: 3,
@@ -36,18 +41,22 @@ export class TablasComponent {
       apellido: 'Rios',
       ci: '1578258629',
       email: 'daniela.r.ec@gmail.com',
+      fechaRegistro: new Date(),
     },
   ];
 
   dataSource = new MatTableDataSource(this.estudiantes);
 
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'ci', 'email'];
+  displayedColumns: string[] = ['id', 'nombreCompleto', 'ci', 'email', 'fechaRegistro'];
 
   aplicarFiltro(ev: Event): void {
-    
+
     const inputValue = (ev.target as HTMLInputElement)?.value;
     this.dataSource.filter = inputValue?.trim()?.toLowerCase();
-    
+
   }
-  
+  constructor(private matDialog: MatDialog){}
+
+
+ 
 }

@@ -4,22 +4,34 @@ import { TablasComponent } from './tablas.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { SharedModule } from '../shared/shared.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DirectivesModule } from '../shared/directives/directives.module';
+import { FormulariosModule } from "../formularios/formularios.module";
+
 
 
 
 @NgModule({
-  declarations: [
-    TablasComponent
-  ],
-  imports: [
-    CommonModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule
-    
-  ],
-  exports:[
-    TablasComponent,
-  ]
+    declarations: [
+        TablasComponent,
+    ],
+    exports: [
+        TablasComponent,
+    ],
+    imports: [
+        CommonModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatInputModule,
+        SharedModule,
+        MatIconModule,
+        MatButtonModule,
+        MatDialogModule,
+        DirectivesModule,
+        FormulariosModule
+    ]
 })
 export class TablasModule { }

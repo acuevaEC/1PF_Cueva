@@ -1,0 +1,49 @@
+
+<h1 appFontSize> Formulario de Alumnos</h1>
+
+<form [formGroup]="formularioRegistro" class="example-form">
+  <!--INPUT NOMBRE-->
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>Nombre</mat-label>
+    <input [formControl]="nombreControl" matInput placeholder="Nombre" />
+    <mat-hint>Ingrese un nombre con 6 caracteres.</mat-hint>
+    <mat-error *ngFor="let error of nombreControl.errors | keyvalue">
+      {{ error | controlErrorMessages }}
+    </mat-error>
+  </mat-form-field>
+
+  <!--INPUT APELLIDO-->
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>Apellido</mat-label>
+    <input [formControl]="apellidoControl" matInput placeholder="Apellido" />
+    <mat-hint>Ingrese sucd  apellido con 6 caracteres.</mat-hint>
+    <mat-error *ngFor="let error of apellidoControl.errors | keyvalue">
+      {{ error | controlErrorMessages }}
+    </mat-error>
+  </mat-form-field>
+
+  <!--INPUT IDENTIFICACION-->
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>Identificación</mat-label>
+    <input [formControl]="identificacionControl" matInput placeholder="Identificación" />
+    <mat-hint>Ingrese su identificación con números.</mat-hint>
+    <mat-error *ngFor="let error of identificacionControl.errors | keyvalue">
+      {{ error | controlErrorMessages }}
+    </mat-error>
+  </mat-form-field>
+
+  <!--INPUT EMAIL-->
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>E-mail</mat-label>
+    <input [formControl]="emailControl" matInput placeholder="E-mail" />
+    <mat-hint>Ingrese su e-mail valido.</mat-hint>
+    <mat-error *ngFor="let error of emailControl.errors | keyvalue">
+      {{ error | controlErrorMessages }}
+    </mat-error>
+  </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <!--<button (click)="guardar()" mat-button>Guardar</button>-->
+</div>

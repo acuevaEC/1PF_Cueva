@@ -7,6 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { TablasModule } from '../tablas/tablas.module';
+import { FormulariosModule } from '../formularios/formularios.module';
 
 
 
@@ -24,7 +25,8 @@ import { TablasModule } from '../tablas/tablas.module';
     MatIconModule,
     MatButtonModule,
     MatButtonToggleModule,
-    TablasModule
+    TablasModule,
+    FormulariosModule,
   ],
   exports:[
     DashboardComponent
