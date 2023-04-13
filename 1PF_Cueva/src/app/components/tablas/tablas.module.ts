@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DirectivesModule } from '../shared/directives/directives.module';
-import { FormulariosModule } from "../formularios/formularios.module";
+import { FormulariosModule } from '../formularios/formularios.module';
 
 
 
@@ -31,7 +31,7 @@ import { FormulariosModule } from "../formularios/formularios.module";
         MatButtonModule,
         MatDialogModule,
         DirectivesModule,
-        FormulariosModule
+        FormulariosModule,
     ]
 })
 export class TablasModule { }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
+import { AbmAlumnosComponent } from './abm-alumnos/abm-alumnos.component';
 
 export interface Estudiante {
   id: number;
@@ -57,6 +58,9 @@ export class TablasComponent {
   }
   constructor(private matDialog: MatDialog){}
 
+abrirEstudiante():void{
+  this.matDialog.open(AbmAlumnosComponent);
+}
 
  
 }
