@@ -3,6 +3,27 @@
 
 
 <form [formGroup]="formularioRegistro" class="example-form">
+
+    <!--INPUT ID-->
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>ID</mat-label>
+      <input [formControl]="idControl" matInput placeholder="ID" />
+      <mat-hint>Ingrese número de id</mat-hint>
+      <mat-error *ngFor="let error of idControl.errors | keyvalue">
+        {{ error | controlErrorMessages }}
+      </mat-error>
+    </mat-form-field>
+
+ <!--INPUT IDENTIFICACION-->
+ <mat-form-field appearance="fill" class="example-full-width">
+  <mat-label>Identificación</mat-label>
+  <input [formControl]="ciControl" matInput placeholder="Identificación" />
+  <mat-hint>Ingrese su identificación con números.</mat-hint>
+  <mat-error *ngFor="let error of ciControl.errors | keyvalue">
+    {{ error | controlErrorMessages }}
+  </mat-error>
+</mat-form-field>
+
   <!--INPUT NOMBRE-->
   <mat-form-field appearance="fill" class="example-full-width">
     <mat-label>Nombre</mat-label>
@@ -23,16 +44,7 @@
     </mat-error>
   </mat-form-field>
 
-  <!--INPUT IDENTIFICACION-->
-  <mat-form-field appearance="fill" class="example-full-width">
-    <mat-label>Identificación</mat-label>
-    <input [formControl]="identificacionControl" matInput placeholder="Identificación" />
-    <mat-hint>Ingrese su identificación con números.</mat-hint>
-    <mat-error *ngFor="let error of identificacionControl.errors | keyvalue">
-      {{ error | controlErrorMessages }}
-    </mat-error>
-  </mat-form-field>
-
+ 
   <!--INPUT EMAIL-->
   <mat-form-field appearance="fill" class="example-full-width">
     <mat-label>E-mail</mat-label>
@@ -42,6 +54,21 @@
       {{ error | controlErrorMessages }}
     </mat-error>
   </mat-form-field>
+
+
+  <!--INPUT Fecha-->
+  <mat-form-field appearance="fill" class="example-full-width">
+    <mat-label>Fecha</mat-label>
+    <input type="date" [formControl]="fechaControl" matInput placeholder="Fecha de Registro" />
+    <mat-hint>Ingrese la fecha de registro.</mat-hint>
+    <mat-error *ngFor="let error of emailControl.errors | keyvalue">
+      {{ error | controlErrorMessages }}
+    </mat-error>
+
+  </mat-form-field>
+
+
+
 </form>
 
 <div mat-dialog-actions>

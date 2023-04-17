@@ -19,7 +19,7 @@ export class ControlErrorMessagesPipe implements PipeTransform {
 
     if (opciones[error.key]) {
       defaultMsg = opciones[error.key]
-    }
+          }
     return defaultMsg;
   }
 

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA,MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FormulariosComponent } from '../formularios/formularios.component';
-
+import {FormControl} from '@angular/forms';
 
 export interface Estudiante {
   id: number;
@@ -19,7 +19,10 @@ export interface Estudiante {
   styleUrls: ['./tablas.component.css'],
 })
 
+
 export class TablasComponent {
+  date = new FormControl(new Date());
+  serializedDate = new FormControl(new Date().toISOString());
   estudiantes: Estudiante[] = [
     {
       id: 1,
@@ -61,16 +64,13 @@ export class TablasComponent {
 
 
 abrirEstudiante():void{
-const dialog= this.matDialog.open(FormulariosComponent);
+
+  const dialog= this.matDialog.open(FormulariosComponent);
+
 dialog.afterClosed().subscribe((valor) => {
   if (valor) {
     this.dataSource.data=[...this.dataSource.data, valor];
     console.log(this.dataSource.data);
-  }else{
-    this.dataSource.data.push(valor);
-    console.log(valor);
-    console.log(this.dataSource.data);
-    console.log(valor);
   }
 })
  

@@ -1,14 +1,14 @@
-import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import {
   AbstractControl,
-  FormBuilder,
   FormControl,
   FormGroup,
   Validators,
   ValidationErrors,
   ValidatorFn,
 } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Estudiante } from '../tablas/tablas.component';
 
 @Component({
   selector: 'app-formularios',
@@ -29,33 +29,54 @@ export class FormulariosComponent {
     Validators.required,
     Validators.minLength(6),
   ]);
-  identificacionControl = new FormControl('', [
+  ciControl = new FormControl('', [
     Validators.required,
     Validators.minLength(10),
     this.numericValidator(),
   ]);
+  idControl = new FormControl('', [
+    Validators.required,
+    this.numericValidator(),
+  ]);
+  fechaControl = new FormControl('', [
+    Validators.required
+  ]);
 
   formularioRegistro = new FormGroup({
+    
     nombre: this.nombreControl,
     apellido: this.apellidoControl,
     email: this.emailControl,
-    identificacion: this.identificacionControl,
+    ci: this.ciControl,
+    id: this.ciControl,
+    fechaRegistro: this.fechaControl
   });
 
   numericValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       let val = control.value;
       if (val === null || val === '') return null;
-      if (!val.toString().match(/^[0-9]+(\.?[0-9]+)?$/)) return { 'invalidNumber': true };
+      if (!val.toString().match(/^[0-9]+(\.?[0-9]+)?$/))
+        return { invalidNumber: true };
 
       return null;
     };
   }
-  constructor(private dialogRef: DialogRef){
+
+
+
+  constructor(private dialogRef: MatDialogRef<FormulariosComponent>) {}
+
+  guardar(): void {
+    if(this.formularioRegistro.valid){
+      this.dialogRef.close(this.formularioRegistro.value);
+    }
+    else{
+      alert("formulario incompleto");
+    }
+   
   }
-  guardar(): void{
-    console.log(this.formularioRegistro.value);
-    this.dialogRef.close(this.formularioRegistro.value);
-  }
+
+
 }
 
