@@ -1,3 +1,5 @@
+<!-- Nuevo alumno -->
+
 <div class="mb-3">
   <button (click)="abrirEstudiante()" color="primary" mat-flat-button>
     <mat-icon>add</mat-icon>
@@ -66,7 +68,7 @@
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element; let j = index">
       <button
-       
+      (click)="editarEstudiante(j)"
         mat-icon-button
         aria-label="Example icon button with a delete icon"
       >

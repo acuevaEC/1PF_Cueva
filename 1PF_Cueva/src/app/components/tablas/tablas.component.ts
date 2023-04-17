@@ -72,7 +72,14 @@ export class TablasComponent {
     }
   }
 
-  
+  editarEstudiante(rowid: number):void{
+    if (rowid > -1) {
+      console.log(rowid.toString());
+      const dialog= this.matDialog.open(FormulariosComponent);
+    }
+    
+   
+  }
 
 abrirEstudiante():void{
 
@@ -81,11 +88,12 @@ abrirEstudiante():void{
 dialog.afterClosed().subscribe((valor) => {
   if (valor) {
     this.dataSource.data=[...this.dataSource.data,{...valor, fechaRegistro:new Date(), id:this.dataSource.data.length+1} ];
-    console.log(this.dataSource.data);
+    //console.log(this.dataSource.data);
   }
 })
  
 }
+
 
 
 
