@@ -34,13 +34,6 @@ export class FormulariosComponent {
     Validators.minLength(10),
     this.numericValidator(),
   ]);
-  idControl = new FormControl('', [
-    Validators.required,
-    this.numericValidator(),
-  ]);
-  fechaControl = new FormControl('', [
-    Validators.required
-  ]);
 
   formularioRegistro = new FormGroup({
     
@@ -48,8 +41,6 @@ export class FormulariosComponent {
     apellido: this.apellidoControl,
     email: this.emailControl,
     ci: this.ciControl,
-    id: this.ciControl,
-    fechaRegistro: this.fechaControl
   });
 
   numericValidator(): ValidatorFn {
@@ -72,6 +63,7 @@ export class FormulariosComponent {
       this.dialogRef.close(this.formularioRegistro.value);
     }
     else{
+      console.log(this.formularioRegistro)
       alert("formulario incompleto");
     }
    

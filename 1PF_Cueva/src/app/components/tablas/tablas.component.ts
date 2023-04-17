@@ -52,7 +52,7 @@ export class TablasComponent {
 
   dataSource = new MatTableDataSource(this.estudiantes);
 
-  displayedColumns: string[] = ['id', 'nombreCompleto', 'ci', 'email', 'fechaRegistro'];
+  displayedColumns: string[] = ['id', 'nombreCompleto', 'ci', 'email', 'fechaRegistro', 'eliminar','editar'];
 
   aplicarFiltro(ev: Event): void {
 
@@ -60,8 +60,19 @@ export class TablasComponent {
     this.dataSource.filter = inputValue?.trim()?.toLowerCase();
 
   }
+
   constructor(private matDialog: MatDialog) {}
 
+  eliminarAlumno(rowid: number) {
+    if (rowid > -1) {
+      this.matDialog.getDialogById(rowid.toString());
+      this.dataSource.data.splice(rowid,1);
+      this.dataSource._updateChangeSubscription();
+      console.log(rowid.toString())
+    }
+  }
+
+  
 
 abrirEstudiante():void{
 
@@ -69,12 +80,14 @@ abrirEstudiante():void{
 
 dialog.afterClosed().subscribe((valor) => {
   if (valor) {
-    this.dataSource.data=[...this.dataSource.data, valor];
+    this.dataSource.data=[...this.dataSource.data,{...valor, fechaRegistro:new Date(), id:this.dataSource.data.length+1} ];
     console.log(this.dataSource.data);
   }
 })
  
 }
+
+
 
  
 }
