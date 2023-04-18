@@ -72,14 +72,35 @@ export class TablasComponent {
     }
   }
 
-  editarEstudiante(rowid: number):void{
-    if (rowid > -1) {
-      console.log(rowid.toString());
-      const dialog= this.matDialog.open(FormulariosComponent);
-    }
-    
-   
-  }
+  editarAlumno(alumnoParaEditar: Estudiante): void {
+
+    const dialog = this.matDialog.open(FormulariosComponent, {
+  
+     data: {
+        alumnoParaEditar
+      }
+  
+    })
+  
+    dialog.afterClosed().subscribe((dataDelAlumnoEditado) => {
+  
+     if (dataDelAlumnoEditado) {
+  
+      this.dataSource.data = this.dataSource.data.map(
+  
+       (alumnoActual) => alumnoActual.id === alumnoParaEditar.id
+  
+        ? ({ ...alumnoActual, ...dataDelAlumnoEditado})
+  
+        : alumnoActual,
+  
+      );
+  
+     }
+  
+    })
+  
+   }
 
 abrirEstudiante():void{
 

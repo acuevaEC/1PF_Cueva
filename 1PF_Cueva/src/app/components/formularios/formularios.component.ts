@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -7,7 +7,7 @@ import {
   ValidationErrors,
   ValidatorFn,
 } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Estudiante } from '../tablas/tablas.component';
 
 @Component({
@@ -56,7 +56,17 @@ export class FormulariosComponent {
 
 
 
-  constructor(private dialogRef: MatDialogRef<FormulariosComponent>) {}
+  constructor(
+    private dialogRef: MatDialogRef<FormulariosComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: any,
+    ) {
+      if(data){
+        this.nombreControl.setValue(data.alumnoParaEditar.nombre);
+        this.apellidoControl.setValue(data.alumnoParaEditar.apellido);
+        this.ciControl.setValue(data.alumnoParaEditar.ci);
+        this.emailControl.setValue(data.alumnoParaEditar.email);
+      }
+    }
 
   guardar(): void {
     if(this.formularioRegistro.valid){
